@@ -1,7 +1,8 @@
 import firebase from "firebase/app";
 import "firebase/auth";
+import "firebase/firestore";
 
-const firebaseConfig = {
+let firebaseConfig = {
   apiKey: "AIzaSyBaPzMab8qlnfqTscp4T6ExUtxYFMqoiV0",
   authDomain: "sistema-90d8c.firebaseapp.com",
   projectId: "sistema-90d8c",
@@ -10,6 +11,9 @@ const firebaseConfig = {
   appId: "1:537153662438:web:808449a0a11749a685fa27",
   measurementId: "G-CJNQY4JJFT",
 };
+
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
+
+export default firebase;

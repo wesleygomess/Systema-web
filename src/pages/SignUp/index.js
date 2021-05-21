@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AuthContext } from "../../contexts/auth";
 import { Link } from "react-router-dom";
 import "./signUp.css";
 import logo from "../../assets/logo.png";
@@ -8,8 +9,15 @@ function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { signUp, loadingAuth } = useContext(AuthContext);
+
   function handleSubmit(event) {
     event.preventDefault();
+    if (name === "" || email === "" || password === "") {
+      alert("Preencha todos os campos!");
+      return;
+    }
+    signUp(email, password, name);
   }
 
   return (
@@ -39,7 +47,9 @@ function SignUp() {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
           />
-          <button type="submit">Acessar</button>
+          <button type="submit">
+            {loadingAuth ? "Carregando..." : "Cadastrar"}
+          </button>
         </form>
         <Link to="/">Já sou cadastrado</Link>
       </div>

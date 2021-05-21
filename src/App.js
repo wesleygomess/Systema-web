@@ -1,12 +1,17 @@
-import firebase from "./services/firebaseConnection";
 import { BrowserRouter } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Routes from "./routes";
+import AuthProvider from "./contexts/auth";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <ToastContainer autoClose={3000} />
+        <Routes />
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
