@@ -52,6 +52,11 @@
   color: #fff;
 }
 
+.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+}
+
 @media screen and (max-width: 700px) {
   .sidebar {
     width: 100%;
@@ -59,11 +64,26 @@
     position: relative;
   }
 
+  div.content {
+    margin-left: 0px;
+  }
+
   .sidebar a {
     float: left;
   }
 
   .sidebar div {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar a {
+    text-align: center;
+    float: none;
+  }
+
+  .sidebar a svg {
     display: none;
   }
 }
